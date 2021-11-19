@@ -4,7 +4,7 @@
 
 > Unit Testing in Angular framework with test coverage on Firefox, Chrome, Edge browsers on custom version and OS Combination.
 
-<img src="https://i1.wp.com/makeseleniumeasy.com/wp-content/uploads/2018/07/TestNG.png?fit=1600%2C900" alt="testng_logo" width="200" height="100"/>
+<img src="https://github.com/harita-R/angular-unit-test/blob/9e192701bd2a27c70e25811a11fb3541d84527f8/1_EKbZZOcx2IfRAe4bYF_eeQ.png" alt="banner" />
 
 ---
 ### Technologies: 
