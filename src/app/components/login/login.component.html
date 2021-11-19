@@ -1,0 +1,59 @@
+<div class="alert alert-danger text-center" *ngIf="errorMsg">
+    {{errorMsg}}
+ </div>
+ 
+ <div class="card text-center">
+     <div class="card-header">
+       SIGN IN
+     </div>
+     <div class="card-body">
+   
+         <!-- FORM BODY -->
+         <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+            
+            <div class="form-group">
+             <label>Email</label>
+             <input type="email" class="form-control" name="email" required [(ngModel)]=User.email
+             #email="ngModel" [class.is-invalid]="email.invalid && email.touched" pattern="^([a-zA-Z\._]{1,30})@([a-zA-Z]{1,20}).([A-Za-z]{2,6})?.([a-zA-Z]{2,5})">
+         </div>
+             <div *ngIf="email.errors && (email.invalid || email.touched)">
+                <small class="text-danger" *ngIf="email.errors?.['required']" [class.d-none]="email.valid || email.untouched">Email cannot be empty</small>
+                <small class="text-danger" *ngIf="email.errors?.['pattern']" [class.d-none]="email.valid || email.untouched">Invalid email pattern</small>
+             </div><br>
+ 
+         <div class="form-group">
+             <label>Password</label>
+             <input type="password" class="form-control" name="password" required [(ngModel)]=User.password
+             #password="ngModel" [class.is-invalid]="password.invalid && password.touched" pattern="^[\w\S]{8,16}$">
+         </div><br>
+         <div *ngIf="password.errors && (password.invalid || password.touched)">
+             <small class="text-danger" *ngIf="password.errors?.['required']" [class.d-none]="password.valid || password.untouched">Password cannot be empty</small>
+             <small class="text-danger" *ngIf="password.errors?.['pattern']" [class.d-none]="password.valid || password.untouched">Password must be minimum 8 characters</small>
+          </div>
+          
+         <div class="col-12">
+             <button [disabled]="userForm.form.invalid" type="submit" class="btn btn-lg" >SIGN IN</button>
+           </div>
+ 
+         </form>
+           <!-- /FORM BODY -->
+           <hr>
+          <div>New User? Sign up <a routerLink="/user-register">here</a> <br>
+       Forgot Password? <br> <br>
+       or sign up with: <br>
+       <button type="button" class="btn btn-primary btn-floating mx-1">
+           <i class="fa fa-facebook-f"></i>
+         </button>
+     
+         <button type="button" class="btn btn-primary btn-floating mx-1">
+           <i class="fa fa-google"></i>
+         </button>
+     
+         <button type="button" class="btn btn-primary btn-floating mx-1">
+           <i class="fa fa-twitter"></i>
+         </button>
+         </div> 
+        
+     </div>   
+ </div>
+     
